@@ -16,7 +16,7 @@
         <div class="card-header">Форма добавления товара</div>
 
         <div class="card-body">
-          <form class="was-validated" action="{{asset('home')}}" method="post" enctype="multipart/form-data">
+          <form method="post" class="was-validated" action="{{asset('home')}}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
               <label for="name">Название товара</label>
@@ -88,6 +88,31 @@
               <button class="btn btn-primary" type="submit">Сохранить</button>
             </div>
           </form>
+          <table class="table table-bordered table-striped" width="100%">
+            <tr>
+              <th width="200px">Изображение</th>
+              <th>Название</th>
+              <th>Описание</th>
+              <th>Price</th>
+              <th>Действия</th>
+            </tr>
+            @foreach($objs as $item)
+            <tr>
+              <th>
+                <img src="/uploads/21/ss_{{$item->picture}}" alt="">
+              </th>
+
+              <td>{{$item->name}}</td>
+              <th>{{$item->body}}</th>
+              <th>{{$item->price}}</th>
+              <th>Редактировать <br />
+                <a href="{{asset('product/delete/'.$item->id)}}" class="btn btn-block btn-default">
+                  Удалить</a>
+                <a href="#" class="btn btn-block btn-primary show-modal" data-id="{{$item->id}}">Просмотр</a>
+              </th>
+            </tr>
+            @endforeach
+          </table>
         </div>
       </div>
     </div>

@@ -43,6 +43,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $objs = Product::where('user_id', Auth::user()->id)->orderBy('id','DESC')->paginate(10);
+        return view('home', compact('objs'));
     }
 }
