@@ -6,6 +6,7 @@
         <title>Singolo</title>
         <link type="text/css" href="{{asset('/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link type="text/css" href="{{asset('/css/style.css')}}" rel="stylesheet"> 
+        
         @stack('styles')
     </head>
     <body>

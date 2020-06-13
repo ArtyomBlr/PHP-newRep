@@ -1,6 +1,7 @@
 @extends('layouts.base')
 @push('styles')
-<link type="text/css" href="{{asset('/media/css/home.css')}}" rel="stylesheet" />
+
+<link type="text/css" href="{{asset('/css/home.css')}}" rel="stylesheet"> 
 @endpush
 <!-- Scripts -->
 
@@ -113,6 +114,7 @@
             </tr>
             @endforeach
           </table>
+          <p align="center">{!!$objs->links()!!}</p>
         </div>
       </div>
     </div>

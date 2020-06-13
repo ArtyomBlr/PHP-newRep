@@ -30,6 +30,8 @@ class HomeController extends Controller
 
         return redirect()->back();
         }
+
+        
           
     public function __construct()
     {
@@ -45,5 +47,15 @@ class HomeController extends Controller
     {
         $objs = Product::where('user_id', Auth::user()->id)->orderBy('id','DESC')->paginate(10);
         return view('home', compact('objs'));
+    }
+
+    public function getDelete($id = null){
+        //Product::where('id', $id)->delete();
+        $objs= Product::find($id);
+        @unlink(public_path().'/uploads/'.$objs->user_id.'/'.$objs->picture);
+        @unlink(public_path().'/uploads/'.$objs->user_id.'/s'.$objs->picture);
+        @unlink(public_path().'/uploads/'.$objs->user_id.'/ss'.$objs->picture);
+        $objs->delete();
+        return redirect('home');
     }
 }

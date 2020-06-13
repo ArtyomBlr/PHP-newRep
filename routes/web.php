@@ -20,7 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('home', 'HomeController@postIndex');
-// Route::get('product/delete/{id}', 'HomeController@getDelete');
+Route::get('product/delete/{id}', 'HomeController@getDelete');
 
 // Route::group(['prefix' => 'admin'], function () {
 //   Voyager::routes();
