@@ -1,12 +1,16 @@
 @extends('layouts.base')
 @push('styles')
 
-<link type="text/css" href="{{asset('/css/home.css')}}" rel="stylesheet"> 
+<link type="text/css" href="{{asset('css/modal.css')}}" rel="stylesheet"/>
+<link type="text/css" href="{{asset('/css/home.css')}}" rel="stylesheet" /> 
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 <!-- Scripts -->
 
 @push('scripts')
-
+  <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
+  <script src="{{asset('js/app.js')}}" defer></script>
+  <script src="{{asset('js/modal.js')}}"></script>
 @endpush
 
 @section('content')
@@ -76,11 +80,11 @@
 
             <div class="custom-file">
               <input type="file" name="picture1" class="custom-file-input" id="picture1">
-              @error('picture1')
-              <span class="danger" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
+                @error('picture1')
+                <span class="danger" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               <label class="custom-file-label" for="picture1">Выберете изображение...</label>
 
             </div>

@@ -25,11 +25,11 @@ class HomeController extends Controller
         if ($pic) {
             $r['picture'] = $pic;
         }
-       // Order::create ($r->all());
+
         Product::create($r->all());
 
         return redirect()->back();
-        }
+    }
 
         
           
